@@ -33,7 +33,7 @@ div.login-body {
 div.login-body h1 {
     font-size: 7rem;
     font-weight: 600;
-    width: 50%;
+    width: 100%;
     margin: auto;
     padding-bottom: 0.7rem;
 }
@@ -42,7 +42,7 @@ div.login-body p {
     font-size: 2rem;
     font-weight: 400;
     padding-bottom: 4rem;
-    width: 50%;
+    width: 100%;
     margin: auto;
 }
 
