@@ -9,9 +9,7 @@ const TOKEN = "https://accounts.spotify.com/api/token"
 async function onPageLoad() {
     if (window.location.search.length > 0) {
         await handleRedirect()
-        document.getElementById('login-body').style.display = 'none'
-        document.getElementById('logged-in-body').style.display = 'block'
-        document.getElementById('particles-js').style.display = 'none'
+
     } else {
         access_token = localStorage.getItem('access_token')
 
@@ -26,6 +24,8 @@ async function onPageLoad() {
 
         if (data.error) {
             document.getElementById('login-body').style.display = 'block'
+            document.getElementById('particles-js').style.display = 'block'
+            window.dispatchEvent(new Event('resize'))
         } else {
             document.getElementById('login-body').style.display = 'none'
             document.getElementById('logged-in-body').style.display = 'block'
@@ -72,12 +72,18 @@ async function fetchAccessToken(code) {
     })
         .then(response => {
             if (!response.ok) {
+                document.getElementById('login-body').style.display = 'block'
+                document.getElementById('particles-js').style.display = 'block'
+                window.dispatchEvent(new Event('resize'))
                 throw new Error('HTTP status ' + response.status);
             }
             return response.json();
         })
         .then(data => {
             localStorage.setItem('access_token', data.access_token);
+            document.getElementById('login-body').style.display = 'none'
+            document.getElementById('logged-in-body').style.display = 'block'
+            document.getElementById('particles-js').style.display = 'none'
         })
         .catch(error => {
             console.error('Error:', error);
