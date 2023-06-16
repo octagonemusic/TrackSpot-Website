@@ -95,3 +95,68 @@ button.login:hover {
     background-size: cover;
     background-position: 50% 50%;
 }
+
+/* NAVBAR STYLES */
+
+nav {
+    background-color: #1a1a1a;
+}
+
+span.logo-text {
+    font-size: 2.4rem;
+    color: #fff;
+    font-weight: 600;
+    width: 100%;
+    margin: auto;
+    letter-spacing: 0.01rem;
+    padding-left: 2.2rem;
+}
+
+.nav-link {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: 0.4s ease;
+}
+
+.nav-item {
+    padding-right: 2.2rem;
+    margin: auto;
+}
+
+.nav-link:hover {
+    color: #1ed760;
+    transition: 0.4s ease
+}
+
+#nav-pfp {
+    border-radius: 50%;
+    max-width: 2.8rem;
+}
+
+.dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+    background-color: #1a1a1a;
+}
+
+.dropdown-item {
+    color: #fff;
+    transition: 0.4s ease;
+    font-weight: 500;
+}
+
+.dropdown-item:hover {
+    color: #1ed760;
+    background-color: #1a1a1a;
+    transition: 0.4s ease;
+}
+
+#log-out {
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+#logged-as {
+    font-size: 1.2rem;
+}

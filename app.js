@@ -6,6 +6,8 @@ var refresh_token = null
 const AUTHORIZE = "https://accounts.spotify.com/authorize"
 const TOKEN = "https://accounts.spotify.com/api/token"
 
+
+
 async function onPageLoad() {
     if (window.location.search.length > 0) {
         await handleRedirect()
@@ -30,6 +32,7 @@ async function onPageLoad() {
             document.getElementById('login-body').style.display = 'none'
             document.getElementById('logged-in-body').style.display = 'block'
             document.getElementById('particles-js').style.display = 'none'
+            pfpLoader()
         }
 
         console.log(data)
@@ -84,6 +87,7 @@ async function fetchAccessToken(code) {
             document.getElementById('login-body').style.display = 'none'
             document.getElementById('logged-in-body').style.display = 'block'
             document.getElementById('particles-js').style.display = 'none'
+            pfpLoader()
         })
         .catch(error => {
             console.error('Error:', error);
@@ -138,11 +142,29 @@ async function authorize() {
     });
 }
 
+async function pfpLoader() {
+    const pfp = document.getElementById('nav-pfp')
+    const access_token = await localStorage.getItem('access_token')
+
+    const response = await fetch('https://api.spotify.com/v1/me', {
+        headers: {
+            Authorization: 'Bearer ' + access_token
+        }
+    });
+
+    const data = await response.json();
+
+    pfp.src = data.images[0].url
+
+    var x = document.getElementById("logged-as");
+    x.innerHTML = "Logged in as " + data.display_name;
+}
 
 
-
-
-
+function logout() {
+    localStorage.removeItem('access_token')
+    location.reload()
+}
 
 
 
