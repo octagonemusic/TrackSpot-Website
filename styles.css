@@ -103,7 +103,7 @@ nav {
 }
 
 span.logo-text {
-    font-size: 2.4rem;
+    font-size: 3rem;
     color: #fff;
     font-weight: 600;
     width: 100%;
@@ -159,4 +159,50 @@ span.logo-text {
 
 #logged-as {
     font-size: 1.2rem;
+}
+
+/* RECENTLY PLAYED SECTION */
+
+div.recent-song {
+    display: flex;
+    background-color: #1a1a1a;
+    margin: 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+div.recently-played {
+    margin-top: 3rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+}
+
+h1.title {
+    margin-left: 2rem;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 0;
+}
+
+div.recent-song img {
+    width: 6rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px #000;
+    margin-left: 2rem;
+}
+
+div.center {
+    margin: auto;
+}
+
+div.recent-song h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+div.recent-song p {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
 }

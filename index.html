@@ -21,10 +21,12 @@
 
 
     <div id="logged-in-body" class="logged-in-body">
+
+
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <span class="logo-text">Track<span class="colored-text">Spot.</span></span>
+                    <span class="logo-text">Track<span class="colored-text">Spot</span></span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -47,6 +49,26 @@
                 </ul>
             </div>
         </nav>
+
+        <div class="recently-played">
+            <h1 class="title">Recently Played</h1>
+            <div class="row recent-song">
+                <div class="col-2 center">
+                    <img id="recent-song-cover" src="..">
+                </div>
+                <div class="col-6 center">
+                    <h1 id="recent-song-title"></h1>
+                </div>
+                <div class="col-3 center">
+                    <p id="recent-song-artist"></p>
+                </div>
+                <div class="col-1 center">
+                    <p id="recent-song-time"></p>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <div id="particles-js"></div>

@@ -32,7 +32,7 @@ async function onPageLoad() {
             document.getElementById('login-body').style.display = 'none'
             document.getElementById('logged-in-body').style.display = 'block'
             document.getElementById('particles-js').style.display = 'none'
-            pfpLoader()
+            contentLoad()
         }
 
         console.log(data)
@@ -87,7 +87,7 @@ async function fetchAccessToken(code) {
             document.getElementById('login-body').style.display = 'none'
             document.getElementById('logged-in-body').style.display = 'block'
             document.getElementById('particles-js').style.display = 'none'
-            pfpLoader()
+            contentLoad()
         })
         .catch(error => {
             console.error('Error:', error);
@@ -124,7 +124,7 @@ let codeVerifier = generateRandomString(128);
 async function authorize() {
     generateCodeChallenge(codeVerifier).then(codeChallenge => {
         let state = generateRandomString(16);
-        let scope = 'user-read-private user-read-email';
+        let scope = 'user-read-private user-read-email user-read-recently-played user-read-currently-playing';
 
         localStorage.setItem('code_verifier', codeVerifier);
 
@@ -160,13 +160,47 @@ async function pfpLoader() {
     x.innerHTML = "Logged in as " + data.display_name;
 }
 
+function contentLoad() {
+    pfpLoader()
+    recentlyPlayed()
+}
 
 function logout() {
     localStorage.removeItem('access_token')
     location.reload()
 }
 
+async function recentlyPlayed() {
+    const img = document.getElementById('recent-song-cover')
+    const title = document.getElementById('recent-song-title')
+    const artist = document.getElementById('recent-song-artist')
+    const songLength = document.getElementById('recent-song-time')
 
+    const access_token = await localStorage.getItem('access_token')
+
+    const response = await fetch('https://api.spotify.com/v1/me/player/recently-played?limit=1', {
+        headers: {
+            Authorization: 'Bearer ' + access_token
+        }
+    })
+
+    const data = await response.json();
+
+    img.src = data.items[0].track.album.images[0].url
+    title.innerHTML = data.items[0].track.name
+    artists = []
+    for (let i = 0; i < data.items[0].track.artists.length; i++) {
+        artists.push(data.items[0].track.artists[i].name)
+    }
+    artist.innerHTML = artists.join(', ')
+    songLength.innerHTML = ms(data.items[0].track.duration_ms)
+}
+
+function ms(millis) {
+    var minutes = Math.floor(millis / 60000);
+    var seconds = ((millis % 60000) / 1000).toFixed(0);
+    return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+}
 
 
 
