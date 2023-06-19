@@ -50,24 +50,297 @@
             </div>
         </nav>
 
-        <div class="recently-played">
-            <h1 class="title">Recently Played</h1>
-            <div class="row recent-song">
-                <div class="col-2 center">
-                    <img id="recent-song-cover" src="..">
+        <a target="_blank" href=".." id="recently-played-url">
+            <div class="recently-played">
+                <h1 class="title">Recently Played</h1>
+                <div class="row recent-song center">
+                    <div class="col-2 center">
+                        <img id="recent-song-cover" src="..">
+                    </div>
+                    <div class="col-6 center">
+                        <h1 id="recent-song-title"></h1>
+                    </div>
+                    <div class="col-3 center">
+                        <p id="recent-song-artist"></p>
+                    </div>
+                    <div class="col-1 center">
+                        <p id="recent-song-time"></p>
+                    </div>
                 </div>
-                <div class="col-6 center">
-                    <h1 id="recent-song-title"></h1>
+            </div>
+        </a>
+
+        <div class="top-artists container-fluid">
+            <h1 class="title">Top Artists</h1>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <a target="_blank" href=".." class="artist-url" id="artist-1-url">
+                        <div class="artist-card">
+                            <div class="row artist-card-img">
+                                <div class="col-12">
+                                    <img id="artist-1-img" src="..">
+                                </div>
+                            </div>
+                            <div class="row artist-card-text">
+                                <div class="col-12">
+                                    <h1 id="artist-1-name"></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-3 center">
-                    <p id="recent-song-artist"></p>
+                <div class="col-2">
+                    <a target="_blank" href=".." class="artist-url" id="artist-2-url">
+                        <div class="artist-card">
+                            <div class="row artist-card-img">
+                                <div class="col-12">
+                                    <img id="artist-2-img" src="..">
+                                </div>
+                            </div>
+                            <div class="row artist-card-text">
+                                <div class="col-12">
+                                    <h1 id="artist-2-name"></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="col-1 center">
-                    <p id="recent-song-time"></p>
+                <div class="col-2">
+                    <a target="_blank" href=".." class="artist-url" id="artist-3-url">
+                        <div class="artist-card">
+                            <div class="row artist-card-img">
+                                <div class="col-12">
+                                    <img id="artist-3-img" src="..">
+                                </div>
+                            </div>
+                            <div class="row artist-card-text">
+                                <div class="col-12">
+                                    <h1 id="artist-3-name"></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                 </div>
+                <div class="col-2">
+                    <a target="_blank" href=".." class="artist-url" id="artist-4-url">
+                        <div class="artist-card">
+                            <div class="row artist-card-img">
+                                <div class="col-12">
+                                    <img id="artist-4-img" src="..">
+                                </div>
+                            </div>
+                            <div class="row artist-card-text">
+                                <div class="col-12">
+                                    <h1 id="artist-4-name"></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-2">
+                    <a target="_blank" href=".." class="artist-url" id="artist-5-url">
+                        <div class="artist-card">
+                            <div class="row artist-card-img">
+                                <div class="col-12">
+                                    <img id="artist-5-img" src="..">
+                                </div>
+                            </div>
+                            <div class="row artist-card-text">
+                                <div class="col-12">
+                                    <h1 id="artist-5-name"></h1>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-1"></div>
             </div>
         </div>
 
+        <div class="top-tracks container-fluid">
+            <h1 class="title">Top Tracks</h1>
+            <div class="row buttons">
+                <div class="col-4 center">
+                    <button type="button" class="btn shadow-none" id="short_term" onclick="topTracks(this.id)">Last
+                        Month</button>
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn shadow-none" id="medium_term" onclick="topTracks(this.id)">Last 6
+                        Months</button>
+                </div>
+                <div class=" col-4">
+                    <button type="button" class="btn shadow-none" id="long_term" onclick="topTracks(this.id)">All
+                        Time</button>
+                </div>
+            </div>
+            <div class=" row">
+                <div class="col-6">
+                    <a id="track-1-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">1</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-1-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-1-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-1-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                    <a id="track-2-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">2</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-2-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-2-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-2-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                    <a id="track-3-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">3</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-3-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-3-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-3-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                    <a id="track-4-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">4</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-4-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-4-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-4-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                    <a id="track-5-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">5</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-5-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-5-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-5-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6">
+                    <a id="track-6-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">6</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-6-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-6-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-6-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                    <a id="track-7-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">7</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-7-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-7-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-7-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                    <a id="track-8-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">8</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-8-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-8-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-8-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                    <a id="track-9-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">9</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-9-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-9-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-9-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                    <a id="track-10-url" target="_blank" href="..">
+                        <div class="row top-track">
+                            <div class="col-1">
+                                <h1 class="track-number">10</p>
+                            </div>
+                            <div class="col-2">
+                                <img id="track-10-img" src="..">
+                            </div>
+                            <div class="col-6">
+                                <h1 id="track-10-name"></h1>
+                            </div>
+                            <div class="col-3">
+                                <p id="track-10-artist"></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
 
     </div>
 

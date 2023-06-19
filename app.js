@@ -1,7 +1,6 @@
 var redirect_uri = "http://127.0.0.1:3000/index.html"
 var client_id = 'bd7bef9bca6748bfb449f3cb4bce389b'
 var access_token = null
-var refresh_token = null
 
 const AUTHORIZE = "https://accounts.spotify.com/authorize"
 const TOKEN = "https://accounts.spotify.com/api/token"
@@ -34,8 +33,6 @@ async function onPageLoad() {
             document.getElementById('particles-js').style.display = 'none'
             contentLoad()
         }
-
-        console.log(data)
     }
 }
 
@@ -124,7 +121,7 @@ let codeVerifier = generateRandomString(128);
 async function authorize() {
     generateCodeChallenge(codeVerifier).then(codeChallenge => {
         let state = generateRandomString(16);
-        let scope = 'user-read-private user-read-email user-read-recently-played user-read-currently-playing';
+        let scope = 'user-read-private user-read-email user-read-recently-played user-read-currently-playing user-top-read';
 
         localStorage.setItem('code_verifier', codeVerifier);
 
@@ -163,6 +160,8 @@ async function pfpLoader() {
 function contentLoad() {
     pfpLoader()
     recentlyPlayed()
+    topArtists()
+    topTracks('short_term')
 }
 
 function logout() {
@@ -175,6 +174,7 @@ async function recentlyPlayed() {
     const title = document.getElementById('recent-song-title')
     const artist = document.getElementById('recent-song-artist')
     const songLength = document.getElementById('recent-song-time')
+    const url = document.getElementById('recently-played-url')
 
     const access_token = await localStorage.getItem('access_token')
 
@@ -194,6 +194,61 @@ async function recentlyPlayed() {
     }
     artist.innerHTML = artists.join(', ')
     songLength.innerHTML = ms(data.items[0].track.duration_ms)
+    url.href = data.items[0].track.external_urls.spotify
+}
+
+async function topArtists() {
+    const access_token = await localStorage.getItem('access_token')
+
+    const response = await fetch('https://api.spotify.com/v1/me/top/artists?time_range=long_term&limit=5&offset=0', {
+        headers: {
+            Authorization: 'Bearer ' + access_token
+        }
+    })
+
+    const data = await response.json();
+
+    for (let i = 0; i < data.items.length; i++) {
+        let name = document.getElementById(`artist-${i + 1}-name`)
+        let img = document.getElementById(`artist-${i + 1}-img`)
+        let url = document.getElementById(`artist-${i + 1}-url`)
+        name.innerHTML = data.items[i].name
+        img.src = data.items[i].images[0].url
+        url.href = data.items[i].external_urls.spotify
+    }
+}
+
+async function topTracks(term) {
+    const access_token = await localStorage.getItem('access_token')
+
+    document.getElementById('short_term').classList.remove('active')
+    document.getElementById('medium_term').classList.remove('active')
+    document.getElementById('long_term').classList.remove('active')
+    document.getElementById(term).classList.add('active')
+
+    const response = await fetch(`https://api.spotify.com/v1/me/top/tracks?time_range=${term}&limit=10&offset=0`, {
+        headers: {
+            Authorization: 'Bearer ' + access_token
+        }
+    })
+
+    const data = await response.json();
+
+    for (let i = 0; i < data.items.length; i++) {
+        let name = document.getElementById(`track-${i + 1}-name`)
+        let img = document.getElementById(`track-${i + 1}-img`)
+        let artist = document.getElementById(`track-${i + 1}-artist`)
+        let url = document.getElementById(`track-${i + 1}-url`)
+
+        name.innerHTML = data.items[i].name
+        img.src = data.items[i].album.images[0].url
+        artists = []
+        for (let j = 0; j < data.items[i].artists.length; j++) {
+            artists.push(data.items[i].artists[j].name)
+        }
+        artist.innerHTML = artists.join(', ')
+        url.href = data.items[i].external_urls.spotify
+    }
 }
 
 function ms(millis) {
