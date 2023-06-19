@@ -381,3 +381,12 @@ div.top-track:hover {
     transition: 0.4s ease;
     transform: scale(1.05);
 }
+
+/* FOOTER */
+div.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
