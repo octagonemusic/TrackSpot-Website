@@ -246,6 +246,10 @@ div.artist-card-text h1 {
     font-weight: 600;
     text-align: center;
     width: 100%;
+    padding: 0.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 div.artist-card-img {
@@ -258,6 +262,9 @@ div.artist-card-img img {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
+    object-fit: cover;
+    width: 9rem;
+    height: 9rem;
 }
 
 a {
