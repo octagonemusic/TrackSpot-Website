@@ -135,7 +135,9 @@ span.logo-text {
 
 #nav-pfp {
     border-radius: 50%;
-    max-width: 2.8rem;
+    object-fit: cover;
+    width: 2.8rem;
+    height: 2.8rem;
 }
 
 .dropdown-menu {
