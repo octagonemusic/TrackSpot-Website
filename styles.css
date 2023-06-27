@@ -203,7 +203,6 @@ h1.title {
 
 div.recent-song img {
     width: 6rem;
-    border-radius: 1rem;
     box-shadow: 0 0 15px #000;
     margin-left: 2rem;
 }
@@ -274,7 +273,6 @@ div.artist-card-img img {
     right: 0;
     bottom: 0;
     margin: auto;
-    border-radius: 25px;
 }
 
 a {
@@ -347,7 +345,7 @@ div.top-track img {
     width: 100%;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    
 }
 
 div.buttons div.col-4 {
@@ -399,13 +397,4 @@ div.top-track:hover {
     background-color: #000000;
     transition: 0.4s ease;
     transform: scale(1.05);
-}
-
-/* FOOTER */
-div.footer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
 }
