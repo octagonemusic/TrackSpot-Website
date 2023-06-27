@@ -1,4 +1,4 @@
-var redirect_uri = "https://octagonemusic.github.io/TrackSpot-Website/"
+var redirect_uri = "https://octagonemusic.github.io/TrackSpot-Website"
 var client_id = 'bd7bef9bca6748bfb449f3cb4bce389b'
 var access_token = null
 
